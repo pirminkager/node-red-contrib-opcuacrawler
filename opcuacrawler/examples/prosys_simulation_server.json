@@ -1,0 +1,99 @@
+[
+    {
+        "id": "fa0eaf8c.8d8188",
+        "type": "tab",
+        "label": "Crawl Example",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "570f2fec.570808",
+        "type": "OpcUa-Crawler",
+        "z": "fa0eaf8c.8d8188",
+        "endpoint": "9c967549.bd47c8",
+        "item": "ns=5;s=MyLevel.Alarm",
+        "name": "",
+        "x": 370,
+        "y": 200,
+        "wires": [
+            [
+                "930600a1.71e49"
+            ]
+        ]
+    },
+    {
+        "id": "fda435cc.fa85a8",
+        "type": "inject",
+        "z": "fa0eaf8c.8d8188",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 200,
+        "wires": [
+            [
+                "570f2fec.570808"
+            ]
+        ]
+    },
+    {
+        "id": "930600a1.71e49",
+        "type": "debug",
+        "z": "fa0eaf8c.8d8188",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "1c8b3f4.d201141",
+        "type": "comment",
+        "z": "fa0eaf8c.8d8188",
+        "name": "Browse Item is the root item from where you start crawling.",
+        "info": "Browse Item is the root item from where you start crawling.\nMind that it is not good practice to crawl the opc ua tree.",
+        "x": 300,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "19a6d11a.4720e7",
+        "type": "comment",
+        "z": "fa0eaf8c.8d8188",
+        "name": "This example uses the Prosys OPC UA Simulation Server",
+        "info": "",
+        "x": 300,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "9c967549.bd47c8",
+        "type": "OpcUa-Endpoint",
+        "z": "",
+        "endpoint": "opc.tcp://host.docker.internal:53530/OPCUA/SimulationServer",
+        "secpol": "None",
+        "secmode": "None",
+        "login": false
+    }
+]
